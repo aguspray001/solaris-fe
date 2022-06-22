@@ -16,6 +16,7 @@ function Home() {
     setIsShowModal((prevValue) => !prevValue);
   };
 
+  // send message to WhatsApp
   const bookNowConfirm = ({ destination, pickUpLocation, departureDate, returnDate }) => {
     const fixDepartureDate = moment(departureDate).format('DD MMMM YYYY')
     const fixReturnDate = moment(returnDate).format('DD MMMM YYYY')
