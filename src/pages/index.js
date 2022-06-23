@@ -25,7 +25,7 @@ function Home() {
     const fixReturnDate = moment(returnDate).format("DD MMMM YYYY");
 
     window.open(
-      `https://api.whatsapp.com/send?phone=+6285961142551&text=Permisi, saya mau tanya ${busSize} untuk ke ${destination} tanggal ${fixDepartureDate} ${
+      `https://api.whatsapp.com/send?phone=+6281218097779&text=Permisi *admin Solaris Jaya*, saya mau tanya ${busSize} untuk ke ${destination} tanggal ${fixDepartureDate} ${
         returnDate ? `sampai ${fixReturnDate}` : ""
       }, jemput di ${pickUpLocation} apakah masih ada slot?`,
       "_blank"
