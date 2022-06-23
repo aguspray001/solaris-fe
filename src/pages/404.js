@@ -11,7 +11,7 @@ const NotFoundPage = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-col justify-center items-center mt-[45%]">
+      <div className="flex flex-col justify-center items-center">
         <div className="mb-4">
           <Image src={notFoundImage} alt="notfound-image" />
         </div>
