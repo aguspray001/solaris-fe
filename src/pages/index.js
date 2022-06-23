@@ -50,7 +50,7 @@ function Home() {
           <h1 className="text-4xl text-blue-600 font-bold mb-4 sm:text-4xl lg:text-6xl">
             Solaris Travel
           </h1>
-          <span className="block mb-10 -mt-2">
+          <span className="block mb-10 -mt-2 text-center">
             Part of PT. Bina Putra Solaris Jaya Group
           </span>
           <q className="block text-lg text-black font-bold mb-10 -mt-4 text-center sm:text-left">
@@ -66,14 +66,17 @@ function Home() {
           )}
         </div>
       </section>
-      <section className="flex flex-col flex-wrap gap-4 justify-center items-center bg-blue-700 py-8 px-8 rounded-xl shadow-md sm:flex-row sm:items-center sm:justify-between">
+      <section className="flex flex-col flex-wrap gap-4 justify-center items-center bg-blue-700 py-8 rounded-xl shadow-md sm:flex-row sm:items-center sm:justify-between">
         {dataFeature &&
           dataFeature.map((feature, key) => {
+            const isLastFeature = dataFeature.length === (key+1)
+            console.log(isLastFeature)
             return (
               <FeatureText
                 key={key}
                 value={feature.value}
                 description={feature.desc}
+                isLastFeature={isLastFeature}
               />
             );
           })}
