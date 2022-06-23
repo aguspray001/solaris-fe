@@ -3,13 +3,20 @@ import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
 
 function BookingForm({ title, onClose, onConfirm }) {
-  const [destination, setDestination] = useState("");
-  const [pickUpLocation, setPickUpLocation] = useState("");
-  const [departureDate, setDepartureDate] = useState(new Date());
-  const [returnDate, setReturnDate] = useState(new Date());
-  const [busSize, setBusSize] = useState("");
+  const [data, setData] = useState({
+    destination: "",
+    pickUpLocation: "",
+    busSize: "",
+    departureDate: new Date(),
+    returnDate: new Date(),
+  });
 
-  const bookData = { destination, pickUpLocation, departureDate, returnDate };
+  const updateData = (e) => {
+    setData((data)=>({
+      ...data,
+      [e.target.name] : e.target.value
+    }))
+  }
 
   return (
     <div className="max-w-[40rem] bg-white px-5 py-5 border-4 border-blue-800 shadow-2xl rounded-lg">
@@ -17,37 +24,42 @@ function BookingForm({ title, onClose, onConfirm }) {
         <h1 className="text-2xl font-bold mb-10">{title}</h1>
         <div>
           <Input
+            name="destination"
             type={"text"}
-            onChange={setDestination}
+            onChange={updateData}
             placeHolder="Tujuan (contoh: Jogjakarta)"
-            value={destination}
+            value={data.destination}
           />
           <Input
+            name="busSize"
             type={"text"}
-            onChange={setBusSize}
+            onChange={updateData}
             placeHolder="Ukuran Bis (contoh: Besar 2 Unit)..."
-            value={busSize}
+            value={data.busSize}
           />
           <Input
+            name="pickUpLocation"
             type={"text"}
-            onChange={setPickUpLocation}
+            onChange={updateData}
             placeHolder="Penjemputan (contoh: Alun-Alun Sidoarjo)"
-            value={pickUpLocation}
+            value={data.pickUpLocation}
           />
           <>
             <span className="block mt-4">Tanggal Berangkat:</span>
             <Input
+              name="departureDate"
               type={"date"}
-              onChange={setDepartureDate}
+              onChange={updateData}
               placeHolder="Tanggal Berangkat..."
-              value={departureDate}
+              value={data.departureDate}
             />
             <span className="block mt-4">Tanggal Pulang:</span>
             <Input
+              name="returnDate"
               type={"date"}
-              onChange={setReturnDate}
+              onChange={updateData}
               placeHolder="Tanggal Pulang..."
-              value={returnDate}
+              value={data.returnDate}
             />
           </>
         </div>
@@ -56,7 +68,7 @@ function BookingForm({ title, onClose, onConfirm }) {
         <div className="mr-4">
           <Button
             title={"Confirm"}
-            onClick={() => onConfirm(bookData)}
+            onClick={() => onConfirm(data)}
             isPrimary
           />
         </div>

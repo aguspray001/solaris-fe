@@ -19,19 +19,15 @@ function Home() {
   };
 
   // send message to WhatsApp
-  const bookNowConfirm = ({
-    destination,
-    pickUpLocation,
-    departureDate,
-    returnDate,
-  }) => {
+  const bookNowConfirm = (data) => {
+    const { destination, pickUpLocation, busSize, departureDate, returnDate } = data;
     const fixDepartureDate = moment(departureDate).format("DD MMMM YYYY");
     const fixReturnDate = moment(returnDate).format("DD MMMM YYYY");
 
     window.open(
-      `https://api.whatsapp.com/send?phone=+6285961142551&text=Permisi, apakah saya mau tanya bis untuk tujuan ${destination} tanggal ${fixDepartureDate} ${
+      `https://api.whatsapp.com/send?phone=+6285961142551&text=Permisi, saya mau tanya ${busSize} untuk ke ${destination} tanggal ${fixDepartureDate} ${
         returnDate ? `sampai ${fixReturnDate}` : ""
-      }, jemput di ${pickUpLocation}`,
+      }, jemput di ${pickUpLocation} apakah masih ada slot?`,
       "_blank"
     );
   };
