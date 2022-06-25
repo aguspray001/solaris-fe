@@ -30,7 +30,7 @@ function FAQ() {
             Frequenly ask question
           </q>
           <div className="-mt-10 sm:hidden">
-            <AMPImage src={FAQImage} alt="home-travel" isAmp={isAmp} />
+            <AMPImage height={400} width={400} src={FAQImage} alt="home-travel" isAmp={isAmp} />
           </div>
           <q className="block text-lg text-black font-bold mb-10 -mt-4 text-center sm:text-left">
             We are here to help answering your question,
@@ -39,7 +39,7 @@ function FAQ() {
           <Button title={"Contact Us"} isPrimary onClick={sendMessage}></Button>
         </div>
         <div className="hidden mt-10 sm:block">
-            <AMPImage src={FAQImage} alt="home-travel" isAmp={isAmp} />
+            <AMPImage height={400} width={400} src={FAQImage} alt="home-travel" isAmp={isAmp} />
         </div>
       </section>
     </MainLayout>

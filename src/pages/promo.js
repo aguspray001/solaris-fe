@@ -30,7 +30,7 @@ function FAQ() {
             We offer you travelling packet for individual / group.
           </q>
           <div className="-mt-10 sm:hidden">
-            <AMPImage src={BookingImage} alt="home-travel" isAmp={isAmp} />
+            <AMPImage height={400} width={400} src={BookingImage} alt="home-travel" isAmp={isAmp} />
           </div>
           <q className="block text-lg text-black font-bold mb-10 -mt-4 text-center sm:text-left">
             Wanna solo trip with cheap cost for amazing vacation?
@@ -38,7 +38,7 @@ function FAQ() {
           </q>
         </div>
         <div className="hidden mt-10 sm:block">
-            <AMPImage src={BookingImage} alt="home-travel" isAmp={isAmp} />
+            <AMPImage height={400} width={400} src={BookingImage} alt="home-travel" isAmp={isAmp} />
         </div>
       </section>
       <section className="flex justify-center items-center">

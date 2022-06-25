@@ -61,9 +61,9 @@ function Home() {
         </div>
         <div className="mt-10">
           {isShowModal === false ? (
-            <AMPImage src={travelImage} alt="home-travel" isAmp={isAmp}/>
+            <AMPImage height={400} width={400} src={travelImage} alt="home-travel" isAmp={isAmp}/>
           ) : (
-            <AMPImage src={bookingImage} alt="booking" isAmp={isAmp}/>
+            <AMPImage height={400} width={400} src={bookingImage} alt="booking" isAmp={isAmp}/>
           )}
         </div>
       </section>

@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-const AMPImage = ({ isAmp, alt, src }) => {
+const AMPImage = ({ isAmp, alt, src, height, width }) => {
   if (!isAmp) {
-    return <Image alt={alt} src={src}></Image>;
+    return <Image height={height} width={width} alt={alt} src={src}></Image>;
   } else {
-    return <amp-img alt={alt} src={src}></amp-img>;
+    return <amp-img height={height} width={width} alt={alt} src={src}></amp-img>;
   }
 };
 
