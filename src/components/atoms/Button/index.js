@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Button = ({ type, title, isPrimary, onClick }) => {
+const Button = ({ type, title, isPrimary, onClick, href }) => {
   if (type === "internal-link") {
     return (
       <button
@@ -12,7 +12,7 @@ const Button = ({ type, title, isPrimary, onClick }) => {
             : "bg-white  border-none text-blue-600 hover:text-blue-800"
         }`}
       >
-        <Link className="font-semibold">{title}</Link>
+        <Link href={href} className="font-semibold">{title}</Link>
       </button>
     );
   } else if (type === "external-link") {
@@ -25,7 +25,7 @@ const Button = ({ type, title, isPrimary, onClick }) => {
             : "bg-white  border-none text-blue-600 hover:text-blue-800"
         }`}
       >
-        <a className="font-semibold">{title}</a>
+        <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold">{title}</a>
       </button>
     );
   } else {

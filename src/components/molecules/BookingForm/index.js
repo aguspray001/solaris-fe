@@ -19,9 +19,9 @@ function BookingForm({ title, onClose, onConfirm }) {
   }
 
   return (
-    <div className="max-w-[40rem] bg-white px-5 py-5 border-4 border-blue-800 shadow-2xl rounded-lg">
+    <div className="max-w-[40rem] bg-white px-3 py-5 border-4 border-blue-800 shadow-2xl rounded-lg">
       <div className="flex flex-col justify-center items-center mb-6">
-        <h1 className="text-2xl font-bold mb-10">{title}</h1>
+        <h1 className="text-2xl font-bold mb-4">{title}</h1>
         <div>
           <Input
             name="destination"

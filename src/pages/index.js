@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useAmp } from 'next/amp'
 import React, { useState } from "react";
 import moment from "moment";
 
@@ -10,9 +11,11 @@ import FeatureText from "../components/atoms/FeatureText";
 import travelImage from "../../public/images/travel-bg.svg";
 import bookingImage from "../../public/images/booking.svg";
 import dataFeature from "../data/data-feature";
-
+import AMPImage from "../components/atoms/AMPImage";
+export const config = { amp: 'hybrid' }
 function Home() {
   const [isShowModal, setIsShowModal] = useState(false);
+  const isAmp = useAmp();
 
   const showModal = () => {
     setIsShowModal((prevValue) => !prevValue);
@@ -33,17 +36,15 @@ function Home() {
   };
 
   return (
-    <MainLayout isNeedHeader>
+    <MainLayout isNeedHeader title="Home Page" desc="Landing Page and Booking Form">
       <section className="relative flex flex-col justify-between items-center md:flex-row">
         {isShowModal && (
-          <div className="absolute z-10 mt-20">
-            <div className="relative">
-              <BookingForm
-                title={"Booking Form"}
-                onClose={setIsShowModal}
-                onConfirm={bookNowConfirm}
-              />
-            </div>
+          <div className="absolute z-10 top-10">
+            <BookingForm
+              title={"Booking Form"}
+              onClose={setIsShowModal}
+              onConfirm={bookNowConfirm}
+            />
           </div>
         )}
         <div className="flex flex-col mt-20 justify-center items-center sm:justify-start sm:items-start sm:mt-0">
@@ -60,9 +61,9 @@ function Home() {
         </div>
         <div className="mt-10">
           {isShowModal === false ? (
-            <Image src={travelImage} alt="home-travel"></Image>
+            <AMPImage src={travelImage} alt="home-travel" isAmp={isAmp}/>
           ) : (
-            <Image src={bookingImage} alt="booking"></Image>
+            <AMPImage src={bookingImage} alt="booking" isAmp={isAmp}/>
           )}
         </div>
       </section>
