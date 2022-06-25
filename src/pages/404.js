@@ -10,8 +10,8 @@ const NotFoundPage = () => {
   const router = useRouter()
 
   return (
-    <MainLayout>
-      <div className="flex flex-col justify-center items-center">
+    <MainLayout title="Not Found" desc="not found page" isNeedHeader>
+      <div className="flex flex-col justify-center items-center mt-10">
         <div className="mb-4">
           <Image src={notFoundImage} alt="notfound-image" />
         </div>

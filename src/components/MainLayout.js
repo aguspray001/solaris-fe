@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillHome, AiFillQuestionCircle } from "react-icons/ai";
 import { FaTicketAlt } from "react-icons/fa";
 import useWindowDimension from "../hooks/useWindow";
+import Footer from "./atoms/Footer";
 
 function MainLayout({ children, isNeedHeader, title, desc }) {
   const [width, height] = useWindowDimension();
@@ -15,7 +16,7 @@ function MainLayout({ children, isNeedHeader, title, desc }) {
         <meta name="description" content={desc} />
       </Head>
       {isNeedHeader && (
-        <div className={`fixed ${width <= 425 ? "bottom-0": ""} left-0 right-0 z-[999] bg-blue-600 flex justify-center items-center px-10 py-4 sm:px-20 sm:justify-between`}>
+        <div className={`fixed ${width <= 425 ? "bottom-5": ""} left-2 right-2 z-[999] bg-blue-600 flex justify-center items-center px-10 py-4 rounded-full sm:rounded-none sm:right-0 sm:left-0 sm:px-20 sm:justify-between`}>
           <span className="text-white font-semibold text-md hidden sm:text-2xl sm:block">
             Solaris Travel
           </span>
@@ -50,6 +51,7 @@ function MainLayout({ children, isNeedHeader, title, desc }) {
         </div>
       )}
       <main className="container mx-auto px-10 py-10 -mt-20 mb-20 sm:mb-0 sm:mt-0">{children}</main>
+      <Footer/>
     </>
   );
 }

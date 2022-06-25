@@ -10,6 +10,10 @@ import FeatureText from "../components/atoms/FeatureText";
 
 import travelImage from "../../public/images/travel-bg.svg";
 import bookingImage from "../../public/images/booking.svg";
+import jogjaImage from "../../public/images/jogja.jpg";
+import baliImage from "../../public/images/bali.jpg";
+import borobudurImage from "../../public/images/borobudur.jpg";
+
 import dataFeature from "../data/data-feature";
 import AMPImage from "../components/atoms/AMPImage";
 export const config = { amp: 'hybrid' }
@@ -81,6 +85,19 @@ function Home() {
             );
           })}
       </section>
+      {/* <section className="flex justify-center items-center">
+        <div className="grid grid-flow-dense grid-cols-1 gap-4 mt-10 sm:grid-cols-2 lg:grid-cols-4">
+          <figure className="h-40 w-full cols-span-2 row-span-2">
+            <Image className="max-w-full object-cover" src={jogjaImage} alt="jogja" isAmp={isAmp}/>
+          </figure>
+          <figure className="h-40 w-full col-span-1 row-span-2">
+            <Image className="object-cover" src={baliImage} alt="bali" isAmp={isAmp}/>
+          </figure>
+          <figure className="h-40 w-full col-span-1 row-span-2">
+            <Image className="object-cover" src={borobudurImage} alt="borobudur" isAmp={isAmp}/>
+          </figure>
+        </div>
+      </section> */}
     </MainLayout>
   );
 }
