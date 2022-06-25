@@ -71,7 +71,6 @@ function Home() {
         {dataFeature &&
           dataFeature.map((feature, key) => {
             const isLastFeature = dataFeature.length === (key+1)
-            console.log(isLastFeature)
             return (
               <FeatureText
                 key={key}

@@ -1,30 +1,55 @@
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AiFillHome, AiFillQuestionCircle } from "react-icons/ai";
+import { FaTicketAlt } from "react-icons/fa";
+import useWindowDimension from "../hooks/useWindow";
 
 function MainLayout({ children, isNeedHeader, title, desc }) {
+  const [width, height] = useWindowDimension();
+
   return (
     <>
       <Head>
         <title>{title} | Solaris Travel</title>
         <meta name="description" content={desc} />
       </Head>
-      {
-        isNeedHeader &&
-        <div className="fixed left-0 right-0 z-[999] bg-blue-600 flex flex-row justify-between items-center px-10 py-4 sm:px-20">
-          <span className="text-white font-semibold text-md sm:text-2xl">
+      {isNeedHeader && (
+        <div className={`fixed ${width <= 425 ? "bottom-0": ""} left-0 right-0 z-[999] bg-blue-600 flex justify-center items-center px-10 py-4 sm:px-20 sm:justify-between`}>
+          <span className="text-white font-semibold text-md hidden sm:text-2xl sm:block">
             Solaris Travel
           </span>
           <nav>
-            <ul className="flex flex-row gap-4 text-white">
-              <li className="font-semibold cursor-pointer"><Link href="/">Home</Link></li>
-              <li className="font-semibold cursor-pointer"><Link href="/promo">Promo</Link></li>
-              <li className="font-semibold cursor-pointer"><Link href="/faq">FAQ</Link></li>
+            <ul className="flex flex-row gap-20 text-white sm:gap-4">
+              <div className="flex justify-center items-center gap-2">
+                <Link href={"/"} >
+                  <AiFillHome className="block sm:hidden" size={25} />
+                </Link>
+                <li className="font-semibold cursor-pointer hidden sm:block">
+                  <Link href="/">Home</Link>
+                </li>
+              </div>
+              <div className="flex justify-center items-center gap-2">
+                <Link href={"/promo"} >
+                  <FaTicketAlt className="block sm:hidden" size={25} />
+                </Link>
+                <li className="font-semibold cursor-pointer hidden sm:block">
+                  <Link href="/promo">Promo</Link>
+                </li>
+              </div>
+              <div className="flex justify-center items-center gap-2">
+                <Link href={"/faq"} >
+                  <AiFillQuestionCircle className="block sm:hidden" size={25} />
+                </Link>
+                <li className="font-semibold cursor-pointer hidden sm:block">
+                  <Link href="/faq">FAQ</Link>
+                </li>
+              </div>
             </ul>
           </nav>
         </div>
-      }
-      <main className="container mx-auto px-10 py-10">{children}</main>
+      )}
+      <main className="container mx-auto px-10 py-10 -mt-20 mb-20 sm:mb-0 sm:mt-0">{children}</main>
     </>
   );
 }
