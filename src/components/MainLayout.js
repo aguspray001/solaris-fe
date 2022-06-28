@@ -16,7 +16,7 @@ function MainLayout({ children, isNeedHeader, title, desc }) {
         <meta name="description" content={desc} />
       </Head>
       {isNeedHeader && (
-        <div className={`fixed ${width <= 425 ? "bottom-5": ""} left-2 right-2 z-[999] bg-blue-600 flex justify-center items-center px-10 py-4 rounded-full sm:rounded-none sm:right-0 sm:left-0 sm:px-20 sm:justify-between`}>
+        <div className={`fixed ${width <= 425 ? "bottom-5 shadow-xl": ""} left-2 right-2 z-[999] bg-blue-600 flex justify-center items-center px-10 py-4 rounded-full sm:rounded-none sm:right-0 sm:left-0 sm:px-20 sm:justify-between`}>
           <span className="text-white font-semibold text-md hidden sm:text-2xl sm:block">
             Solaris Travel
           </span>

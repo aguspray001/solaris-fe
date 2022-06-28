@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useAmp } from 'next/amp'
 import React, { useState } from "react";
 import moment from "moment";
@@ -10,12 +9,11 @@ import FeatureText from "../components/atoms/FeatureText";
 
 import travelImage from "../../public/images/travel-bg.svg";
 import bookingImage from "../../public/images/booking.svg";
-import jogjaImage from "../../public/images/jogja.jpg";
-import baliImage from "../../public/images/bali.jpg";
-import borobudurImage from "../../public/images/borobudur.jpg";
 
 import dataFeature from "../data/data-feature";
+import dataDestination from '../data/data-destination';
 import AMPImage from "../components/atoms/AMPImage";
+
 export const config = { amp: 'hybrid' }
 function Home() {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -85,19 +83,23 @@ function Home() {
             );
           })}
       </section>
-      {/* <section className="flex justify-center items-center">
+      <section className="flex justify-center">
         <div className="grid grid-flow-dense grid-cols-1 gap-4 mt-10 sm:grid-cols-2 lg:grid-cols-4">
-          <figure className="h-40 w-full cols-span-2 row-span-2">
-            <Image className="max-w-full object-cover" src={jogjaImage} alt="jogja" isAmp={isAmp}/>
-          </figure>
-          <figure className="h-40 w-full col-span-1 row-span-2">
-            <Image className="object-cover" src={baliImage} alt="bali" isAmp={isAmp}/>
-          </figure>
-          <figure className="h-40 w-full col-span-1 row-span-2">
-            <Image className="object-cover" src={borobudurImage} alt="borobudur" isAmp={isAmp}/>
-          </figure>
+          {
+            dataDestination &&
+            dataDestination.map((destination, key)=>{
+              return(
+                <div key={key} className="flex flex-col relative rounded-xl overflow-auto">
+                  <span className="flex justify-center items-center absolute rounded-tr-xl rounded-bl-xl top-0 right-0 z-[998] bg-blue-600 h-4 p-4">
+                    <p className="font-semibold text-white">{destination.imageAlt}</p>
+                  </span>
+                  <AMPImage height={200} width={300}  className="object-cover hover:opacity-75 hover:scale-[1.1] cursor-pointer" src={destination.imagePath} alt={destination.imageAlt} isAmp={isAmp}/>
+                </div>
+              )
+            })
+          }
         </div>
-      </section> */}
+      </section>
     </MainLayout>
   );
 }
