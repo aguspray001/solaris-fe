@@ -53,9 +53,9 @@ function Home() {
           <h1 className="text-4xl text-blue-600 font-bold mb-4 sm:text-4xl lg:text-6xl">
             Solaris Travel
           </h1>
-          <span className="block mb-10 -mt-2 text-center">
+          <p className="block mb-10 -mt-2 text-center">
             Part of PT. Bina Putra Solaris Jaya Group
-          </span>
+          </p>
           <q className="block text-lg text-black font-bold mb-10 -mt-4 text-center sm:text-left">
             We are here to guide your amazing <br /> trip and vacation.
           </q>
