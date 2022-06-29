@@ -1,8 +1,35 @@
 import { DefaultSeo } from "next-seo";
+import {useRouter} from 'next/router';
+import nProgress from "nprogress";
+import { useEffect } from "react";
+import 'nprogress/nprogress.css'
 import "../../styles/tailwind.css";
 import { BASE_PATH, BRAND_LONG_DESC, BRAND_TITLE } from "../constant";
 
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  useEffect(() => {
+    const handleStart = (_, { shallow }) => {
+      if(!shallow){
+        nProgress.start();
+      }
+    };
+
+    const handleStop = (_, { shallow }) => {
+      nProgress.done();
+    };
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleStop);
+    router.events.on("routeChangeError", handleStop);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleStop);
+      router.events.off("routeChangeError", handleStop);
+    };
+  }, [router]);
+
   return (
     <>
       <DefaultSeo
