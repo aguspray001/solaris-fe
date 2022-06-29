@@ -1,36 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { BsFillSunFill } from "react-icons/bs";
-import { FiMoon } from "react-icons/fi";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
 const DarkModeButton = () => {
   const [darkTheme, setDarkTheme] = useState(false);
 
-  const isDark = () =>
-    (localStorage && localStorage.theme === "dark") ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-  const getTheme = (isDark) => (isDark ? "dark" : "light");
-
   const themeToggle = () => {
-    localStorage.setItem("theme", getTheme(!darkTheme));
-    if (typeof window !== "undefined") {
-      const memoTheme = localStorage.getItem("theme");
-
-      const html = document.querySelector("html");
-      if (memoTheme === "dark") {
-        html.classList.add("dark");
-      } else {
-        html.classList.remove("dark");
-      }
-    }
     setDarkTheme(!darkTheme);
-    // document.querySelector("html").classList.toggle("dark");
   };
 
   useEffect(() => {
-    setDarkTheme(isDark())
+    const darkState =
+      (localStorage && localStorage.getItem("theme") === "dark") ||
+      (!("theme" in localStorage) &&
+        matchMedia("(prefers-color-scheme: dark)").matches);
+    setDarkTheme(darkState);
   }, []);
+
+  useEffect(() => {
+    if (darkTheme) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkTheme]);
 
   return (
     <div
@@ -39,7 +33,7 @@ const DarkModeButton = () => {
     >
       <span>
         {darkTheme ? (
-          <FiMoon size={20} />
+          <BsFillMoonFill size={20} />
         ) : (
           <BsFillSunFill color="orange" size={20} />
         )}
