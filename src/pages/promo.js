@@ -23,10 +23,10 @@ function FAQ() {
     <MainLayout isNeedHeader title="FAQ Page" desc="FAQ Page">
       <section className="relative flex flex-col justify-between items-center md:flex-row">
         <div className="flex flex-col mt-20 justify-center items-center sm:justify-start sm:items-start sm:mt-0">
-          <h1 className="text-4xl text-blue-600 font-bold mb-4 sm:text-4xl lg:text-6xl">
+          <h1 className="text-4xl text-blue-600 font-bold mb-4 text-center sm:text-left sm:text-4xl lg:text-6xl">
             Travelling Packet
           </h1>
-          <q className="block mb-10 -mt-2 text-center">
+          <q className="block mb-10 -mt-2 text-center sm:text-left">
             We offer you travelling packet for individual / group.
           </q>
           <div className="-mt-10 sm:hidden">
@@ -42,7 +42,7 @@ function FAQ() {
         </div>
       </section>
       <section className="flex justify-center items-center">
-        <h1 className="font-semibold text-black text-4xl">There is no packet today :(</h1>
+        <h1 className="font-semibold text-black text-sm sm:text-xl">Oh no, There is no packet today :(</h1>
       </section>
     </MainLayout>
   );

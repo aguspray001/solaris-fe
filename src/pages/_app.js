@@ -1,6 +1,6 @@
 import { DefaultSeo } from "next-seo";
 import {useRouter} from 'next/router';
-import nProgress from "nprogress";
+import NProgress from "nprogress";
 import { useEffect } from "react";
 import 'nprogress/nprogress.css'
 import "../../styles/tailwind.css";
@@ -11,12 +11,13 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const handleStart = (_, { shallow }) => {
       if(!shallow){
-        nProgress.start();
+        NProgress.start();
+        NProgress.configure({ showSpinner: false })
       }
     };
 
     const handleStop = (_, { shallow }) => {
-      nProgress.done();
+      NProgress.done();
     };
 
     router.events.on("routeChangeStart", handleStart);

@@ -13,6 +13,7 @@ const DarkModeButton = () => {
       (localStorage && localStorage.getItem("theme") === "dark") ||
       (!("theme" in localStorage) &&
         matchMedia("(prefers-color-scheme: dark)").matches);
+    console.log("dark mode ", darkState)
     setDarkTheme(darkState);
   }, []);
 

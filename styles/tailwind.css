@@ -22,14 +22,30 @@ input[type="date"] {
 }
 
 #nprogress .bar {
-  background: #f3f4f6 !important;
+  background: #1d68ff !important;
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 0.625rem #f3f4f6, 0 0 0.3125rem #f3f4f6 !important;
+  box-shadow: 0 0 0.625rem #1d68ff, 0 0 0.3125rem #1d68ff !important;
 }
 
 #nprogress .spinner-icon {
-  border-top-color: #f3f4f6 !important;
-  border-left-color: #f3f4f6 !important;
+  border-top-color: #1d68ff !important;
+  border-left-color: #1d68ff !important;
+}
+
+/* change nprogress color when screen width more than 768px (tablet mode) */
+@media only screen and (min-width: 768px) {
+  #nprogress .bar {
+    background: #f3f4f6 !important;
+  }
+
+  #nprogress .peg {
+    box-shadow: 0 0 0.625rem #f3f4f6, 0 0 0.3125rem #f3f4f6 !important;
+  }
+
+  #nprogress .spinner-icon {
+    border-top-color: #f3f4f6 !important;
+    border-left-color: #f3f4f6 !important;
+  }
 }
